@@ -1,0 +1,33 @@
+{
+    "name": "@escral/versioning",
+    "description": "Useful tools for versioning",
+    "version": "1.5.0",
+    "type": "module",
+    "license": "UNLICENSED",
+    "publishConfig": {
+        "access": "public"
+    },
+    "bin": {
+        "new-version": "./bin/version.js"
+    },
+    "files": [
+        "bin"
+    ],
+    "dependencies": {
+        "citty": "^0.1.6",
+        "consola": "^3.2.3"
+    },
+    "devDependencies": {
+        "@types/node": "^18.15.3",
+        "jiti": "^1.21.6",
+        "typescript": "^5.0"
+    },
+    "scripts": {
+        "build": "tsc --outDir bin",
+        "pub": "yarn build && npx new-version -n -p"
+    },
+    "packageManager": "yarn@1.22.19",
+    "engines": {
+        "node": ">=18.0"
+    }
+}
