@@ -1,7 +1,7 @@
 {
     "name": "@escral/versioning",
     "description": "Bump, commit, tag and push package versions for npm, Composer and custom manifests",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "type": "module",
     "license": "MIT",
     "author": "Alexander Topalo <topaloalexander@gmail.com>",
