@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  lefthook: false
+
+publicHoistPattern:
+  - eslint
+permissions:
+  tsdown:
+    skills: false

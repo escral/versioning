@@ -1,33 +1,56 @@
 {
     "name": "@escral/versioning",
-    "description": "Useful tools for versioning",
+    "description": "Bump, commit, tag and push package versions for npm, Composer and custom manifests",
     "version": "1.5.0",
     "type": "module",
-    "license": "UNLICENSED",
+    "license": "MIT",
+    "author": "Alexander Topalo <topaloalexander@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/escral/versioning.git"
+    },
     "publishConfig": {
         "access": "public"
     },
     "bin": {
-        "new-version": "./bin/version.js"
+        "new-version": "./dist/bin.mjs"
+    },
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "exports": {
+        ".": "./dist/index.mjs",
+        "./package.json": "./package.json"
     },
     "files": [
-        "bin"
+        "dist"
     ],
+    "scripts": {
+        "build": "tsdown",
+        "dev": "tsdown --watch",
+        "test": "vitest run",
+        "typecheck": "tsc --noEmit",
+        "lint": "eslint",
+        "release": "pnpm typecheck && pnpm test && pnpm build && node ./dist/bin.mjs && pnpm publish",
+        "prepare": "lefthook install"
+    },
+    "engines": {
+        "node": ">=22.0"
+    },
     "dependencies": {
-        "citty": "^0.1.6",
-        "consola": "^3.2.3"
+        "citty": "^0.2.2",
+        "consola": "^3.4.2",
+        "semver": "^7.8.6"
     },
     "devDependencies": {
-        "@types/node": "^18.15.3",
-        "jiti": "^1.21.6",
-        "typescript": "^5.0"
+        "@escral/lint": "^2.0.14",
+        "@escral/tsconfig": "^0.3.0",
+        "@types/node": "^22.20.7",
+        "@types/semver": "^7.8.0",
+        "lefthook": "^2.2.4",
+        "tsdown": "^0.23.7",
+        "typescript": "^6.0.3",
+        "vitest": "^5.1.2"
     },
-    "scripts": {
-        "build": "tsc --outDir bin",
-        "pub": "yarn build && npx new-version -n -p"
-    },
-    "packageManager": "yarn@1.22.19",
-    "engines": {
-        "node": ">=18.0"
-    }
+    "packageManager": "pnpm@12.23.0"
 }

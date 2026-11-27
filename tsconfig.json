@@ -1,21 +1,16 @@
 {
+    "extends": "@escral/tsconfig/lib",
     "compilerOptions": {
         "lib": [
-            "ESNext"
+            "ES2022"
         ],
-        "target": "ESNext",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
-        "strict": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
         "types": [
             "node"
-        ]
+        ],
+        "noEmit": true
     },
     "include": [
         "src",
+        "tests"
     ]
 }

@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    lint:
+      glob: "*.{js,mjs,cjs,ts,mts,cts}"
+      run: pnpm lint --fix --no-warn-ignored {staged_files}
+      stage_fixed: true
+    typecheck:
+      run: pnpm typecheck
